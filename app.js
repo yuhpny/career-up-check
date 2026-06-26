@@ -257,7 +257,7 @@ function cosine(a, b) {
   return dot / (Math.sqrt(na) * Math.sqrt(nb));
 }
 const ACCOUNT = "@40.tenshoku"; // Threadsの@ユーザー名
-const BOOKING_URL = "#"; // 面談予約フォームのURLに差し替え
+const BOOKING_URL = "https://career-up-check.vercel.app/booking.html"; // 面談予約フォームのURLに差し替え
 
 function CareerUpCheck() {
   const [step, setStep] = useState(-1); // -1: intro, 0..Q-1: questions, Q: income, Q+1: result
@@ -528,7 +528,7 @@ function Result({
     className: "cu-fine cu-cta-fine"
   }, "所要15〜30分・オンライン可・相談だけでもOKです")), /*#__PURE__*/React.createElement("div", {
     className: "cu-follow"
-  }, /*#__PURE__*/React.createElement("p", null, "まずは情報だけ受け取りたい方は、", ACCOUNT, " のフォローから。40代の現場職のリアルを毎日発信しています。")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("p", null, "まずは情報だけ受け取りたい方は、", ＠40.tenshoku, " のフォローから。40代の現場職のリアルを毎日発信しています。")), /*#__PURE__*/React.createElement("button", {
     className: "cu-link cu-retry",
     onClick: onReset
   }, "もう一度診断する"));
