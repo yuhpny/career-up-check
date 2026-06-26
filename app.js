@@ -4,7 +4,7 @@ const {
   useRef,
   useEffect
 } = React;
-
+ 
 /*
   40代の年収アップキャリア診断（Career up check）
   - ロゴ準拠：紺(#0a2a5e) × オレンジ(#f5821f) × ゴールド(#caa14a)、白背景、"上へ伸びる道"モチーフ
@@ -12,7 +12,7 @@ const {
   - 結果は「事実ベースの提示」に留める（上から目線NG・断定回避ルール準拠）
   - CTAはプロフィール誘導のみ（本文にLINE/URLは置かない設計思想を継承）
 */
-
+ 
 // ---- 5次元: [黙々度, 経験ベース志向, 歩合許容, 自由度, 構造志向] ----
 // 各業種の理想ベクトル（0〜1）。出典素材の構造的特徴を反映（断定ではなく傾向）
 const JOBS = {
@@ -66,7 +66,7 @@ const JOBS = {
     lifeFlat: "額面より、ひとりで黙々と進められて人付き合いが薄い働き方が合うかどうかが分かれ目です。"
   }
 };
-
+ 
 // ---- 設問（各選択肢が5次元へ寄与）----
 const Q = [{
   t: "仕事中、いちばん集中できるのは？",
@@ -220,7 +220,7 @@ const Q = [{
   }]
 }];
 const DIMS = ["黙々と向き合う力", "経験が値段になる適性", "成果で伸ばす志向", "動きながら働く適性", "手順で力を出す力"];
-
+ 
 // ---- 現状年収帯（方向判定とは別レイヤー。差分表示のためだけに使う）----
 const INCOME = [{
   l: "250万くらい / それ以下",
@@ -257,8 +257,8 @@ function cosine(a, b) {
   return dot / (Math.sqrt(na) * Math.sqrt(nb));
 }
 const ACCOUNT = "@40.tenshoku"; // Threadsの@ユーザー名
-const BOOKING_URL = const BOOKING_URL = "https://career-up-check.vercel.app/booking.html"; // 面談予約フォームのURLに差し替え
-
+const BOOKING_URL = "https://career-up-check.vercel.app/booking.html"; // 面談予約フォームのURL
+ 
 function CareerUpCheck() {
   const [step, setStep] = useState(-1); // -1: intro, 0..Q-1: questions, Q: income, Q+1: result
   const [ans, setAns] = useState(Array(Q.length).fill(null));
@@ -266,7 +266,7 @@ function CareerUpCheck() {
   const topRef = useRef(null);
   const INCOME_STEP = Q.length; // 年収設問のstep番号
   const RESULT_STEP = Q.length + 1; // 結果のstep番号
-
+ 
   useEffect(() => {
     if (topRef.current) topRef.current.scrollIntoView({
       behavior: "smooth",
@@ -427,7 +427,7 @@ function Result({
   } = result;
   // 予約フォームへ診断結果を引き継ぐ（GAS側の列に対応）
   const bookingHref = (() => {
-    if (!BOOKING_URL || BOOKING_URL === "https://career-up-check.vercel.app/booking.html") return BOOKING_URL;
+    if (!BOOKING_URL || BOOKING_URL === "#") return BOOKING_URL;
     const topStr = `1位:${top.name}（${top.rangeLow}〜${top.rangeHigh}万） / 2位:${second.name}（${second.rangeLow}〜${second.rangeHigh}万）`;
     const scores = profile.map(p => `${p.label}:${p.pct}`).join(" ");
     const qs = new URLSearchParams({
@@ -547,7 +547,7 @@ function Arrow() {
     strokeLinejoin: "round"
   }));
 }
-
+ 
 // 背景：下から上へS字に伸びる道（ロゴの矢印モチーフを抽象化）
 function RoadBg() {
   return /*#__PURE__*/React.createElement("svg", {
@@ -617,7 +617,7 @@ const css = `
   .cu-shell{ position:relative; max-width:560px; margin:0 auto; }
   .cu-road{ position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
   .cu-head,.cu-card,.cu-foot{ position:relative; z-index:1; }
-
+ 
   .cu-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
   .cu-badge{ display:flex; align-items:baseline; gap:2px;
     border:2px solid var(--navy); border-radius:999px; padding:6px 16px; background:#fff;
@@ -629,10 +629,10 @@ const css = `
     border-left:1px solid var(--gold); padding-left:8px; letter-spacing:1px; }
   .cu-kicker{ margin:0; font-size:12px; font-weight:700; color:var(--navy2);
     background:#eaf1fc; padding:5px 12px; border-radius:999px; }
-
+ 
   .cu-card{ background:#fff; border:1px solid var(--line); border-radius:20px;
     padding:30px 26px; box-shadow:0 18px 40px -28px rgba(10,42,94,0.4); }
-
+ 
   /* intro */
   .cu-title{ margin:0 0 16px; font-size:32px; font-weight:900; line-height:1.25;
     letter-spacing:-0.5px; color:var(--navy); }
@@ -643,7 +643,7 @@ const css = `
   .cu-lead-sm{ font-size:14.5px; color:var(--mute); }
   .cu-lead strong{ color:var(--navy); font-weight:800; }
   .cu-fine{ margin:16px 0 0; font-size:12px; color:var(--mute); line-height:1.7; }
-
+ 
   .cu-btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px;
     border:none; cursor:pointer; font-weight:800; border-radius:14px;
     transition:transform .12s ease, box-shadow .12s ease, filter .12s ease; }
@@ -654,7 +654,7 @@ const css = `
   .cu-btn-primary:hover{ transform:translateY(-2px); box-shadow:0 16px 28px -12px rgba(245,130,31,0.8); }
   .cu-btn-primary:active{ transform:translateY(0); }
   .cu-arrow{ width:20px; height:20px; }
-
+ 
   /* question */
   .cu-progress{ height:6px; background:#eef2f8; border-radius:999px; overflow:hidden; margin-bottom:20px; }
   .cu-progress-bar{ height:100%; border-radius:999px;
@@ -679,7 +679,7 @@ const css = `
   .cu-link{ background:none; border:none; color:var(--navy2); font-weight:700;
     font-size:14px; cursor:pointer; padding:4px 0; }
   .cu-link:hover{ text-decoration:underline; }
-
+ 
   /* result */
   .cu-result-eyebrow{ margin:0 0 6px; font-size:12px; font-weight:800; letter-spacing:2px;
     color:var(--gold); text-transform:uppercase; }
@@ -688,12 +688,12 @@ const css = `
   .cu-result-job{ margin:0; font-size:30px; font-weight:900; color:var(--navy);
     letter-spacing:-0.5px; line-height:1.3; }
   .cu-result-tag{ margin:12px 0 0; font-size:15px; color:var(--or); font-weight:800; }
-
+ 
   .cu-h3{ margin:0 0 14px; font-size:16px; font-weight:900; color:var(--navy);
     display:flex; align-items:center; gap:8px; }
   .cu-h3::before{ content:""; width:4px; height:16px; border-radius:2px;
     background:linear-gradient(var(--or),var(--gold)); }
-
+ 
   .cu-strength{ padding:24px 0; border-bottom:1px solid var(--line); }
   .cu-bars{ display:flex; flex-direction:column; gap:13px; }
   .cu-bar-row{ display:flex; align-items:center; gap:12px; }
@@ -703,7 +703,7 @@ const css = `
     background:linear-gradient(90deg,var(--navy2),var(--or)); }
   .cu-strength-note{ margin:16px 0 0; font-size:13.5px; line-height:1.8; color:var(--mute); }
   .cu-strength-note + *, .cu-bar-row strong{ }
-
+ 
   .cu-money{ padding:24px 0; border-bottom:1px solid var(--line); }
   .cu-money-flow{ display:flex; align-items:stretch; gap:10px; }
   .cu-money-cell{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -723,7 +723,7 @@ const css = `
     background:#f7f9fc; border-radius:10px; padding:14px 15px; font-weight:600; }
   .cu-money-up{ background:#fff7ef; }
   .cu-money-fine{ margin:12px 0 0; font-size:11.5px; line-height:1.7; color:var(--mute); }
-
+ 
   .cu-points{ padding:24px 0; border-bottom:1px solid var(--line); }
   .cu-points ul{ margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:12px; }
   .cu-points li{ display:flex; gap:10px; font-size:14.5px; line-height:1.7; color:var(--ink); }
@@ -734,11 +734,11 @@ const css = `
     transform:rotate(45deg); }
   .cu-points-note{ margin:16px 0 0; font-size:12.5px; line-height:1.8; color:var(--mute);
     background:#f7f9fc; border-left:3px solid var(--gold); padding:12px 14px; border-radius:0 8px 8px 0; }
-
+ 
   .cu-second{ padding:22px 0; }
   .cu-second p{ margin:0; font-size:14.5px; line-height:1.8; color:var(--ink); }
   .cu-second strong{ color:var(--navy); font-weight:800; }
-
+ 
   .cu-cta{ margin-top:6px; padding:26px 22px; border-radius:16px; box-sizing:border-box;
     background:linear-gradient(160deg,#0a2a5e 0%,#143a78 100%); color:#fff; text-align:center; }
   .cu-cta-lead{ margin:0 0 14px; font-size:16px; line-height:1.8; font-weight:800; }
@@ -747,16 +747,16 @@ const css = `
   .cu-cta-btn{ box-shadow:0 8px 18px -10px rgba(245,130,31,0.6); }
   .cu-cta-btn:hover{ transform:none; box-shadow:0 10px 20px -10px rgba(245,130,31,0.7); }
   .cu-cta-fine{ color:#aebfdf; margin-top:14px; }
-
+ 
   .cu-follow{ margin-top:16px; padding:16px 18px; border:1px solid var(--line);
     border-radius:14px; background:#f9fbfe; }
   .cu-follow p{ margin:0; font-size:13px; line-height:1.75; color:var(--mute); }
-
+ 
   .cu-retry{ display:block; margin:20px auto 0; }
-
+ 
   .cu-foot{ text-align:center; margin-top:22px; font-size:11.5px; color:var(--mute);
     letter-spacing:1px; }
-
+ 
   @media (max-width:480px){
     .cu-card{ padding:26px 20px; }
     .cu-title{ font-size:27px; }
