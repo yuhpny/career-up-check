@@ -257,7 +257,7 @@ function cosine(a, b) {
   return dot / (Math.sqrt(na) * Math.sqrt(nb));
 }
 const ACCOUNT = "@40.tenshoku"; // Threadsの@ユーザー名
-const BOOKING_URL = "#"; // 面談予約フォームのURLに差し替え
+const BOOKING_URL = const BOOKING_URL = "https://career-up-check.vercel.app/booking.html"; // 面談予約フォームのURLに差し替え
 
 function CareerUpCheck() {
   const [step, setStep] = useState(-1); // -1: intro, 0..Q-1: questions, Q: income, Q+1: result
