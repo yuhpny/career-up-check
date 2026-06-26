@@ -234,7 +234,7 @@
   var dxTop    = params.get("top")    || "";
   var dxScores = params.get("scores") || "";
   if (dxType) {
-    document.getElementById("dxTag").style.display = "flex";
+    // 診断結果は裏でGASに引き継ぐが、画面上のバナーは表示しない
     document.getElementById("dxType").textContent = dxType;
   }
 

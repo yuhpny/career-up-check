@@ -257,7 +257,7 @@ function cosine(a, b) {
   return dot / (Math.sqrt(na) * Math.sqrt(nb));
 }
 const ACCOUNT = "@40.tenshoku"; // Threadsの@ユーザー名
-const BOOKING_URL = "https://career-up-check.vercel.app/booking.html"; // 面談予約フォームのURLに差し替え
+const BOOKING_URL = "#"; // 面談予約フォームのURLに差し替え
 
 function CareerUpCheck() {
   const [step, setStep] = useState(-1); // -1: intro, 0..Q-1: questions, Q: income, Q+1: result
@@ -528,7 +528,7 @@ function Result({
     className: "cu-fine cu-cta-fine"
   }, "所要15〜30分・オンライン可・相談だけでもOKです")), /*#__PURE__*/React.createElement("div", {
     className: "cu-follow"
-  }, /*#__PURE__*/React.createElement("p", null, "まずは情報だけ受け取りたい方は、",ACCOUNT, " のフォローから。40代の現場職のリアルを毎日発信しています。")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("p", null, "まずは情報だけ受け取りたい方は、", ACCOUNT, " のフォローから。40代の現場職のリアルを毎日発信しています。")), /*#__PURE__*/React.createElement("button", {
     className: "cu-link cu-retry",
     onClick: onReset
   }, "もう一度診断する"));
@@ -739,11 +739,13 @@ const css = `
   .cu-second p{ margin:0; font-size:14.5px; line-height:1.8; color:var(--ink); }
   .cu-second strong{ color:var(--navy); font-weight:800; }
 
-  .cu-cta{ margin-top:6px; padding:26px 22px; border-radius:16px;
+  .cu-cta{ margin-top:6px; padding:26px 22px; border-radius:16px; box-sizing:border-box;
     background:linear-gradient(160deg,#0a2a5e 0%,#143a78 100%); color:#fff; text-align:center; }
   .cu-cta-lead{ margin:0 0 14px; font-size:16px; line-height:1.8; font-weight:800; }
   .cu-cta-sub{ margin:0 0 4px; font-size:13.5px; line-height:1.7; color:#cdd9ef; }
-  .cu-cta-btn{ margin-top:18px; }
+  .cu-cta-btn{ margin-top:18px; box-sizing:border-box; }
+  .cu-cta-btn{ box-shadow:0 8px 18px -10px rgba(245,130,31,0.6); }
+  .cu-cta-btn:hover{ transform:none; box-shadow:0 10px 20px -10px rgba(245,130,31,0.7); }
   .cu-cta-fine{ color:#aebfdf; margin-top:14px; }
 
   .cu-follow{ margin-top:16px; padding:16px 18px; border:1px solid var(--line);
