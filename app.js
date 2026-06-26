@@ -528,7 +528,7 @@ function Result({
     className: "cu-fine cu-cta-fine"
   }, "所要15〜30分・オンライン可・相談だけでもOKです")), /*#__PURE__*/React.createElement("div", {
     className: "cu-follow"
-  }, /*#__PURE__*/React.createElement("p", null, "まずは情報だけ受け取りたい方は、", ＠40.tenshoku, " のフォローから。40代の現場職のリアルを毎日発信しています。")), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("p", null, "まずは情報だけ受け取りたい方は、",ACCOUNT, " のフォローから。40代の現場職のリアルを毎日発信しています。")), /*#__PURE__*/React.createElement("button", {
     className: "cu-link cu-retry",
     onClick: onReset
   }, "もう一度診断する"));
