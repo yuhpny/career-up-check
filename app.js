@@ -427,7 +427,7 @@ function Result({
   } = result;
   // 予約フォームへ診断結果を引き継ぐ（GAS側の列に対応）
   const bookingHref = (() => {
-    if (!BOOKING_URL || BOOKING_URL === "#") return BOOKING_URL;
+    if (!BOOKING_URL || BOOKING_URL === "https://career-up-check.vercel.app/booking.html") return BOOKING_URL;
     const topStr = `1位:${top.name}（${top.rangeLow}〜${top.rangeHigh}万） / 2位:${second.name}（${second.rangeLow}〜${second.rangeHigh}万）`;
     const scores = profile.map(p => `${p.label}:${p.pct}`).join(" ");
     const qs = new URLSearchParams({
