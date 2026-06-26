@@ -80,6 +80,12 @@
   .err-msg{ color:var(--err); font-size:12px; margin:6px 0 0; font-weight:700; display:none; }
   .err-msg.show{ display:block; }
 
+  .fixed-style{ display:flex; align-items:center; gap:11px; padding:13px 14px;
+    border:1.5px solid var(--or); border-radius:12px; background:#fff7ef;
+    font-size:14.5px; font-weight:700; color:var(--ink); }
+  .fixed-dot{ flex:0 0 18px; width:18px; height:18px; border-radius:50%;
+    border:2px solid var(--or); background:var(--or); box-shadow:inset 0 0 0 3px #fff; }
+
   .btn{ width:100%; margin-top:8px; padding:18px; border:none; cursor:pointer; font-weight:800;
     border-radius:14px; font-size:16.5px; color:#fff; display:inline-flex; align-items:center;
     justify-content:center; gap:8px;
@@ -188,13 +194,11 @@
     </div>
 
     <div class="field">
-      <label class="label">相談スタイル<span class="req">必須</span></label>
-      <div class="radios" id="method">
-        <label class="radio"><input type="radio" name="method" value="オンライン"><span class="dot"></span>オンライン（ビデオ通話）</label>
-        <label class="radio"><input type="radio" name="method" value="電話"><span class="dot"></span>電話</label>
-        <label class="radio"><input type="radio" name="method" value="どちらでもよい"><span class="dot"></span>どちらでもよい</label>
+      <label class="label">相談スタイル</label>
+      <div class="fixed-style">
+        <span class="fixed-dot"></span>オンライン（ビデオ通話）
       </div>
-      <p class="err-msg" id="err-method">相談スタイルを選んでください</p>
+      <p class="hint">相談はオンラインで行います。日程確定後にURLをお送りします。</p>
     </div>
 
     <div class="field">
@@ -266,7 +270,6 @@
     if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { showErr("email", true); ok=false; } else showErr("email", false);
     if (!val("residence")) { showErr("residence", true); ok=false; } else showErr("residence", false);
     if (!radioVal("status")){ showErr("status", true); ok=false; } else showErr("status", false);
-    if (!radioVal("method")){ showErr("method", true); ok=false; } else showErr("method", false);
     if (!val("time1"))     { showErr("time1", true); ok=false; } else showErr("time1", false);
     return ok;
   }
@@ -289,7 +292,7 @@
       age:   val("age"),
       residence: val("residence"),
       status: radioVal("status"),
-      method: radioVal("method"),
+      method: "オンライン",
       "希望日時_第1": val("time1"),
       "希望日時_第2": val("time2"),
       "希望日時_第3": val("time3"),
