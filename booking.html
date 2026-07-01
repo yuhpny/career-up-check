@@ -317,6 +317,7 @@
   });
 
   function showDone(){
+    try{ window.va && va('event',{name:'booking_submit'}); }catch(e){}
     document.getElementById("card").innerHTML =
       '<div class="done">' +
         '<div class="done-ic">' +
@@ -337,6 +338,15 @@
       '</div>';
     window.scrollTo({top:0, behavior:"smooth"});
   }
+</script>
+<!-- Vercel Web Analytics -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a'); if(!a)return;
+  if((a.getAttribute('href')||'').indexOf('is.gd/u3cGiI')>-1) va('event',{name:'cta_line_done'});
+});
 </script>
 </body>
 </html>

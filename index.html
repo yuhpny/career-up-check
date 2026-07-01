@@ -18,5 +18,16 @@
 <body>
 <div id="root"></div>
 <script src="./app.js"></script>
+<!-- Vercel Web Analytics -->
+<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<script>
+document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a'); if(!a)return;
+  var h=a.getAttribute('href')||'';
+  if(h.indexOf('booking.html')>-1) va('event',{name:'cta_booking'});
+  else if(h.indexOf('is.gd/u3cGiI')>-1) va('event',{name:'cta_line'});
+});
+</script>
 </body>
 </html>
