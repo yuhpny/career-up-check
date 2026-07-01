@@ -527,8 +527,17 @@ function Result({
   }, "無料で個別相談を予約する", /*#__PURE__*/React.createElement(Arrow, null)), /*#__PURE__*/React.createElement("p", {
     className: "cu-fine cu-cta-fine"
   }, "所要15〜30分・オンライン可・相談だけでもOKです")), /*#__PURE__*/React.createElement("div", {
-    className: "cu-follow"
-  }, /*#__PURE__*/React.createElement("p", null, "まずは情報だけ受け取りたい方は、", ACCOUNT, " のフォローから。40代の現場職のリアルを毎日発信しています。")), /*#__PURE__*/React.createElement("button", {
+    className: "cu-line"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "cu-line-h"
+  }, "📱 まだ相談は…という方は、LINEで特典だけどうぞ"), /*#__PURE__*/React.createElement("ul", {
+    className: "cu-line-list"
+  }, /*#__PURE__*/React.createElement("li", null, "・現場職の「年収と地雷マップ」"), /*#__PURE__*/React.createElement("li", null, "・面接官の「本音→建前」変換シート30選")), /*#__PURE__*/React.createElement("a", {
+    className: "cu-line-btn",
+    href: "https://is.gd/u3cGiI",
+    target: "_blank",
+    rel: "noopener noreferrer"
+  }, "LINEで特典を受け取る")), /*#__PURE__*/React.createElement("button", {
     className: "cu-link cu-retry",
     onClick: onReset
   }, "もう一度診断する"));
@@ -742,7 +751,7 @@ const css = `
   .cu-cta{ margin-top:6px; padding:26px 22px; border-radius:16px; box-sizing:border-box;
     background:linear-gradient(160deg,#0a2a5e 0%,#143a78 100%); color:#fff; text-align:center; }
   .cu-cta-lead{ margin:0 0 14px; font-size:16px; line-height:1.8; font-weight:800; }
-  .cu-cta-sub{ margin:0 0 4px; font-size:13.5px; line-height:1.7; color:#cdd9ef; }
+  .cu-cta-sub{ margin:0 0 4px; font-size:13.5px; line-height:1.7; color:#ffffff; }
   .cu-cta-btn{ margin-top:18px; box-sizing:border-box; }
   .cu-cta-btn{ box-shadow:0 8px 18px -10px rgba(245,130,31,0.6); }
   .cu-cta-btn:hover{ transform:none; box-shadow:0 10px 20px -10px rgba(245,130,31,0.7); }
@@ -751,6 +760,10 @@ const css = `
   .cu-follow{ margin-top:16px; padding:16px 18px; border:1px solid var(--line);
     border-radius:14px; background:#f9fbfe; }
   .cu-follow p{ margin:0; font-size:13px; line-height:1.75; color:var(--mute); }
+  .cu-line{ margin-top:16px; padding:18px 16px; background:#F0FBF3; border:2px solid #06C755; border-radius:16px; text-align:center; }
+  .cu-line-h{ margin:0 0 8px; font-weight:800; font-size:14.5px; color:#12261b; }
+  .cu-line-list{ list-style:none; text-align:left; display:inline-block; margin:0 0 12px; padding:0; font-size:12.5px; color:#26332c; line-height:1.9; }
+  .cu-line-btn{ display:block; background:#06C755; color:#fff; text-decoration:none; font-weight:800; font-size:15.5px; padding:14px; border-radius:12px; }
  
   .cu-retry{ display:block; margin:20px auto 0; }
  
